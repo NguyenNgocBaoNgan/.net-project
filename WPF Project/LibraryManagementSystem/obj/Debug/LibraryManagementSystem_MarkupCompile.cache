@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-D:\.NET program\gitProject_2\Library-Management-System-WPF\Library-Management-System-WPF\WPF Project\LibraryManagementSystem\obj\Debug\
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryManagementSystem\obj\Debug\
 LibraryManagementSystem
 none
 false
 DEBUG;TRACE
-D:\.NET program\gitProject_2\Library-Management-System-WPF\Library-Management-System-WPF\WPF Project\LibraryManagementSystem\App.xaml
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryManagementSystem\App.xaml
 16-1579817964
 
 20844016762
-16-335827282
+16153906078
 AdminAccepted.xaml;AdminAddBook.xaml;AdminAddUser.xaml;AdminBooks.xaml;AdminHome.xaml;AdminLogin.xaml;AdminRequests.xaml;AdminReturn.xaml;AdminUpdateBook.xaml;AdminUpdateUser.xaml;AdminUsers.xaml;MainWindow.xaml;UserBorrow.xaml;UserHome.xaml;UserLogin.xaml;UserTransaction.xaml;
 
 False

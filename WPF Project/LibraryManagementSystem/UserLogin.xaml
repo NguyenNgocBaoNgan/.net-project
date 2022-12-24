@@ -17,7 +17,7 @@
             <Label Content="Email" Height="32"/>
             <TextBox Height="20" TextWrapping="Wrap" x:Name="tbUserEmail"/>
             <Label Content="Password" Height="32"/>
-            <TextBox Height="20" TextWrapping="Wrap" x:Name="tbUserPass"/>
+            <PasswordBox x:Name="tbUserPass" MaxLength="12"/>
         </StackPanel>
         <Button Content="Login" HorizontalAlignment="Left" Margin="66,274,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnLogin" Click="BtnLogin_Click"/>
         <Label Content="" HorizontalAlignment="Left" Margin="66,308,0,0" VerticalAlignment="Top" Width="204" x:Name="alertUser" Foreground="Red"/>

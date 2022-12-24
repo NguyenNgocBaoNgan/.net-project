@@ -38,3 +38,13 @@ D:\.NET program\gitProject_2\Library-Management-System-WPF\Library-Management-Sy
 D:\.NET program\gitProject_2\Library-Management-System-WPF\Library-Management-System-WPF\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.csproj.CopyComplete
 D:\.NET program\gitProject_2\Library-Management-System-WPF\Library-Management-System-WPF\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.dll
 D:\.NET program\gitProject_2\Library-Management-System-WPF\Library-Management-System-WPF\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.pdb
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\bin\Debug\LibraryMSWF.BL.dll
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\bin\Debug\LibraryMSWF.BL.pdb
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\bin\Debug\LibraryMSWF.DAL.dll
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\bin\Debug\LibraryMSWF.DAL.pdb
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\bin\Debug\LibraryMSWF.DAL.dll.config
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.csproj.AssemblyReference.cache
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.csproj.CoreCompileInputs.cache
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.csproj.CopyComplete
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.dll
+C:\Users\WIN10PRO\Source\Repos\.net-project\WPF Project\LibraryMSWF.BL\obj\Debug\LibraryMSWF.BL.pdb
