@@ -28,12 +28,12 @@ namespace LibraryManagementSystem
         //CHECK THE ADMIN LOGIN CREDENTIALS AND OPEN ADMIN HOME =>PL
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if ((tbAdminEmail.Text != string.Empty || tbAdminPass.Text != string.Empty) || (tbAdminEmail.Text != string.Empty && tbAdminPass.Text != string.Empty))
+            if ((tbAdminEmail.Text != string.Empty || tbAdminPass.DataContext != string.Empty) || (tbAdminEmail.Text != string.Empty && tbAdminPass.DataContext != string.Empty))
             {
                 try
                 {
                     AdminBL adminBl = new AdminBL();
-                    bool isDone = adminBl.AdminLoginBL(tbAdminEmail.Text, tbAdminPass.Text);
+                    bool isDone = adminBl.AdminLoginBL(tbAdminEmail.Text, tbAdminPass.Password.ToString());
                     if (isDone)
                     {
                         alertAdmin.Content = "";

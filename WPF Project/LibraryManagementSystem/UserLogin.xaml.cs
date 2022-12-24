@@ -28,12 +28,12 @@ namespace LibraryManagementSystem
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if ((tbUserEmail.Text != string.Empty || tbUserPass.Text != string.Empty) || (tbUserEmail.Text != string.Empty && tbUserPass.Text != string.Empty))
+            if ((tbUserEmail.Text != string.Empty || tbUserPass.DataContext != string.Empty) || (tbUserEmail.Text != string.Empty && tbUserPass.DataContext != string.Empty))
             {
                 try
                 {
                     UserBL userBL = new UserBL();
-                    int isDone = userBL.UserLoginBL(tbUserEmail.Text, tbUserPass.Text);
+                    int isDone = userBL.UserLoginBL(tbUserEmail.Text, tbUserPass.Password.ToString());
                     if (isDone != 0)
                     {
                         userId = isDone;

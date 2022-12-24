@@ -17,13 +17,12 @@
 
 
 
-        <Button Content="User" HorizontalAlignment="Left" Margin="168,267,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnUser" Click="BtnUser_Click"/>
-        <Button Content="Admin" HorizontalAlignment="Left" Margin="465,267,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnAdmin" Click="BtnAdmin_Click" RenderTransformOrigin="1.014,0.75"/>
-        <Image HorizontalAlignment="Left" Height="145" Margin="136,103,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-user-100.png" />
-        <Image HorizontalAlignment="Left" Height="145" Margin="435,103,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-admin-settings-male-100.png" />
-        <Label Content="Welcome to Library Management System" Margin="177,35,0,0" FontWeight="Bold" FontSize="36" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFB9FFEF" Background="{x:Null}" FontFamily="Sweet Hipster"/>
-        <Label Content="Contact us : abcd@gmail.com" HorizontalAlignment="Left" Margin="227,292,0,0" VerticalAlignment="Top" Foreground="#FFB9FFEF" FontFamily="Sweet Hipster" FontSize="36" Background="{x:Null}"/>
-
+        <Button Content="User" HorizontalAlignment="Left" Margin="168,285,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnUser" Click="BtnUser_Click"/>
+        <Button Content="Admin" HorizontalAlignment="Left" Margin="465,285,0,0" VerticalAlignment="Top" Width="74" x:Name="BtnAdmin" Click="BtnAdmin_Click" RenderTransformOrigin="1.014,0.75"/>
+        <Image HorizontalAlignment="Left" Height="145" Margin="136,120,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-user-100.png" />
+        <Image HorizontalAlignment="Left" Height="145" Margin="435,120,0,0" VerticalAlignment="Top" Width="142" Source="/Images/icons8-admin-settings-male-100.png" />
+        <Label Content="Welcome to Library Management System" Margin="38,45,0,0" FontWeight="Bold" FontSize="33" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FFB9FFEF" Background="{x:Null}" FontFamily="Sweet Hipster"/>
+        
 
 
     </Grid>
