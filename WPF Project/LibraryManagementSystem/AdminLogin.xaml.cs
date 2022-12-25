@@ -37,7 +37,6 @@ namespace LibraryManagementSystem
                     if (isDone)
                     {
                         alertAdmin.Content = "";
-                        MessageBox.Show("Logged in successfully...");
                         AdminHome adminHome = new AdminHome();
                         adminHome.Show();
                         tbAdminEmail.Clear();
