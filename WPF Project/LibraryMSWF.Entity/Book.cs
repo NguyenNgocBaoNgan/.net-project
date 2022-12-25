@@ -10,5 +10,9 @@ namespace LibraryMSWF.Entity
         public string BookISBN { get; set; }
         public int BookPrice { get; set; }
         public int BookCopies { get; set; }
+        public string BookImage { get; set; }
+        // 1 còn sách
+        // 2 hết sách 
+        public int BookStatus { get; set; }
     }
 }

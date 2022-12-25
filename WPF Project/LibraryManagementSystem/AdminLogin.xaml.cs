@@ -37,10 +37,12 @@ namespace LibraryManagementSystem
                     if (isDone)
                     {
                         alertAdmin.Content = "";
+
                         AdminHome adminHome = new AdminHome();
                         adminHome.Show();
                         tbAdminEmail.Clear();
                         tbAdminPass.Clear();
+                        // this.Close();//MAINGUYEN mở commenct code dòng này > tắt giao diện trang login admin khi đăng nhập thành công
                     }
                     else
                     {

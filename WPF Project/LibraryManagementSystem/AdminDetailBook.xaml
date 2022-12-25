@@ -1,4 +1,4 @@
-﻿<Window x:Class="LibraryManagementSystem.AdminUpdateBook"
+﻿<Window x:Class="LibraryManagementSystem.AdminDetailBook"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,11 +7,11 @@
         mc:Ignorable="d"
         WindowStyle="ToolWindow"
         ResizeMode="NoResize"
-        Title="Update Book" Height="400" Width="600">
+        Title="Detail Book" Height="400" Width="600">
     <Window.Background>
         <ImageBrush ImageSource="Images/yoab-anderson-IHC5LPAoGrs-unsplash (2).jpg" Stretch="UniformToFill"/>
     </Window.Background>
-    <Grid Height="369" VerticalAlignment="Top">
+    <Grid Height="369" VerticalAlignment="Top" IsEnabled="False">
         <Rectangle HorizontalAlignment="Left" Height="337" Margin="20,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="570" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
 
         <Label Content="Book Name" HorizontalAlignment="Left" Margin="31,22,0,0" VerticalAlignment="Top" Width="120"/>
@@ -29,7 +29,5 @@
             <ComboBoxItem Content="Còn sách" Name="Actice"></ComboBoxItem>
             <ComboBoxItem  Content="Hết sách" Name="Deactice"></ComboBoxItem>
         </ComboBox>
-        <Button Content="Upload Image" HorizontalAlignment="Left" Margin="418,319,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Update" HorizontalAlignment="Left" Height="26" Margin="218,321,0,0" Name="BtnUpdate" Click="BtnUpdate_Click" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </Window>

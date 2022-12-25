@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:LibraryManagementSystem"
         mc:Ignorable="d"
         WindowStyle="ToolWindow" ResizeMode="NoResize"
-        Title="Admin Home" Height="450" Width="800">
+        Title="Admin Home" Height="450" Width="1200">
     <Window.Background>
         <ImageBrush ImageSource="/Images/stanislav-kondratiev-6pO3QFkk7hQ-unsplash.jpg"/>
     </Window.Background>
     <Grid>
         
-        <StackPanel HorizontalAlignment="Left" Height="362" Margin="127,33,0,0" VerticalAlignment="Top" Width="655" Name="adminStackPanel">
+        <StackPanel HorizontalAlignment="Left" Height="362" Margin="127,33,0,0" VerticalAlignment="Top" Width="1000" Name="adminStackPanel">
            
         </StackPanel>
         <Button Content="Books"  HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="100" Name="BtnBooks" Click="BtnBooks_Click"/>

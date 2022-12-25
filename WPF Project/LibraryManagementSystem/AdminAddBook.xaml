@@ -6,23 +6,38 @@
         xmlns:local="clr-namespace:LibraryManagementSystem"
         mc:Ignorable="d"
         WindowStyle="ToolWindow" ResizeMode="NoResize"
-        Title="Add Book" Height="409" Width="333" Foreground="{x:Null}">
+        Title="Add Book" Height="400" Width="600" Foreground="{x:Null}">
     <Window.Background>
         <ImageBrush ImageSource="Images/yoab-anderson-IHC5LPAoGrs-unsplash (2).jpg" Stretch="UniformToFill"/>
     </Window.Background>
     <Grid Height="383" VerticalAlignment="Top" Margin="0,0,0,-4">
-        
-        <Rectangle HorizontalAlignment="Left" Height="334" Margin="20,22,0,0" Stroke="Black" VerticalAlignment="Top" Width="286" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
-        <Label Content="Book Name" HorizontalAlignment="Left" Margin="31,22,0,0" VerticalAlignment="Top" Width="120" Background="{x:Null}" Height="26"/>
-        <Label Content="Book Author" HorizontalAlignment="Left" Margin="31,79,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,54,0,0" TextWrapping="Wrap" Text="" x:Name="tbBName" VerticalAlignment="Top" Width="262"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,110,0,0" TextWrapping="Wrap" Text="" x:Name="tbBAuthor" VerticalAlignment="Top" Width="262"/>
-        <Label Content="Book ISBN" HorizontalAlignment="Left" Margin="31,135,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,166,0,0" TextWrapping="Wrap" Text="" x:Name="tbBISBN"  VerticalAlignment="Top" Width="262"/>
-        <Label Content="Book Price" HorizontalAlignment="Left" Margin="31,191,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,222,0,0" TextWrapping="Wrap" Text="" x:Name="tbBPrice" VerticalAlignment="Top" Width="262"/>
-        <Label Content="Book Copies" HorizontalAlignment="Left" Margin="31,247,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="31,278,0,0" TextWrapping="Wrap" Text="" x:Name="tbBCopy" VerticalAlignment="Top" Width="262"/>
-        <Button Content="Submit" HorizontalAlignment="Left" Height="26" Margin="31,321,0,0" x:Name="BtnSubmit" Click="BtnSubmit_Click" VerticalAlignment="Top" Width="75"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="98*"/>
+            <ColumnDefinition Width="374*"/>
+            <ColumnDefinition Width="77*"/>
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Height="334" Margin="18,22,10,0" Stroke="Black" VerticalAlignment="Top" Opacity="0.705" Fill="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}" Grid.ColumnSpan="4" Grid.Column="1"/>
+        <Label Content="Book Name" HorizontalAlignment="Left" Margin="7,22,0,0" VerticalAlignment="Top" Width="120" Background="{x:Null}" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Book Author" HorizontalAlignment="Left" Margin="7,79,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,54,0,0" TextWrapping="Wrap" Text="Tin học văn phòng" x:Name="tbBName" VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,110,0,0" TextWrapping="Wrap" Text="Trúc Mai" x:Name="tbBAuthor" VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Book ISBN" HorizontalAlignment="Left" Margin="7,135,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,166,0,0" TextWrapping="Wrap" Text="THVP123" x:Name="tbBISBN"  VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Book Price" HorizontalAlignment="Left" Margin="7,191,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,222,0,0" TextWrapping="Wrap" Text="200" x:Name="tbBPrice" VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Label Content="Book Copies" HorizontalAlignment="Left" Margin="7,247,0,0" VerticalAlignment="Top" Width="120" Height="26" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,278,0,0" TextWrapping="Wrap" Text="100" x:Name="tbBCopy" VerticalAlignment="Top" Width="262" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <Button Content="Submit" HorizontalAlignment="Left" Height="26" Margin="95,324,0,0" x:Name="BtnSubmit" Click="BtnSubmit_Click" VerticalAlignment="Top" Width="75" Grid.Column="3"/>
+        <Image Height="100" Width="100" Grid.Column="3" Margin="107,142,167,141"/>
+        <Image Grid.Column="3" x:Name="imagePicture" HorizontalAlignment="Left" Height="233" Margin="226,54,0,0" VerticalAlignment="Top" Width="176" Grid.ColumnSpan="2"/>
+        <Button Grid.Column="3" Content="Upload Image" HorizontalAlignment="Left" Margin="226,324,0,0" VerticalAlignment="Top" Click="Button_View_Click"/>
+        <Button Grid.Column="3" Content="Save Image" HorizontalAlignment="Left" Margin="350,324,0,0" VerticalAlignment="Top" Click="Button_Click" Grid.ColumnSpan="2" IsEnabled="False"/>
+        <ComboBox Grid.Column="2" Grid.ColumnSpan="2" Name="cboStatus" HorizontalAlignment="Left" Margin="10,315,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem IsSelected="True" Content="Còn sách" Name="Actice"></ComboBoxItem>
+            <ComboBoxItem  Content="Hết sách" Name="Deactice"></ComboBoxItem>
+        </ComboBox>
     </Grid>
 </Window>

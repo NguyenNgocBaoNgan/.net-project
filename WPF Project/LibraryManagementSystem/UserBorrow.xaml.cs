@@ -37,7 +37,7 @@ namespace LibraryManagementSystem
             try
             {
                 BookBL bookBl = new BookBL();
-                DataSet ds = bookBl.GetAllBooksBL();
+                DataSet ds = bookBl.GetAllBooksBL();//lấy danh sách book ở database lên
                 userId = UserLogin.userId;
                 ObservableCollection<Book> lst = new ObservableCollection<Book>();
 
@@ -51,6 +51,9 @@ namespace LibraryManagementSystem
                         BookISBN = Convert.ToString(dr["BookISBN"]),
                         BookCopies = Convert.ToInt32(dr["BookCopies"]),
                         BookPrice = Convert.ToInt32(dr["BookPrice"]),
+                        BookStatus = Convert.ToInt32(dr["BookStatus"]),
+                        //gán hình ảnh vào màn hình hiển thị danh sách sách
+                        BookImage = Convert.ToString(dr["BookImage"]),
                     });
                 }
                 dgBorrow.ItemsSource = lst;
@@ -80,7 +83,7 @@ namespace LibraryManagementSystem
                         int BookCopy = book.BookCopies - 1;
                         BookBL bookBL = new BookBL();
                         UserRequestBL userRequestBL = new UserRequestBL();
-                        string isDone1 = bookBL.UpdateBookBL(book.BookId, book.BookName, book.BookAuthor, book.BookISBN, book.BookPrice, BookCopy);
+                        string isDone1 = bookBL.UpdateBookBL(book.BookId, book.BookName, book.BookAuthor, book.BookISBN, book.BookPrice, BookCopy, book.BookImage, book.BookStatus);
                         bool isDone2 = GetIsDone2(book, userRequestBL);
                         if (isDone1 == "true" && isDone2 == true)
                         {
