@@ -23,7 +23,7 @@ namespace LibraryManagementSystem
     /// </summary>
     public partial class AdminDetailBook : Window
     {
-        public int bookId;
+        public int bookId;// tạo biến id sách
         //khởi tạo biến để lưu đường dẫn hình ảnh
         public string bookImage = "";
         public static string PATH_IMAGE_LOAD = "\\..\\..\\..\\Images\\";//thư mục chứa hình khi nhấn hiển thị
@@ -31,7 +31,7 @@ namespace LibraryManagementSystem
         public AdminDetailBook()
         {
             InitializeComponent();
-            this.bookId = AdminBooks.updateBook.BookId;
+            this.bookId = AdminBooks.updateBook.BookId;//dữ liệu từ 1 dòng adminbook truyền qua khi nhấn detail
             tbBName.Text = AdminBooks.updateBook.BookName;
             tbBAuthor.Text = AdminBooks.updateBook.BookAuthor;
             tbBISBN.Text = AdminBooks.updateBook.BookISBN;
@@ -48,7 +48,7 @@ namespace LibraryManagementSystem
             }
 
             //gán giá trị lấy từ database lên để sử dụng lúc cập nhật hình ảnh
-            this.bookImage = AdminBooks.updateBook.BookImage.ToString();
+            this.bookImage = AdminBooks.updateBook.BookImage.ToString();//tên hình
             try
             {
                 //màn hình chi tiết hiển thị cuốn sách

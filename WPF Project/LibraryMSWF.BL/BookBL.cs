@@ -14,6 +14,7 @@ namespace LibraryMSWF.BL
         //VALIDATION METHOD FOR VALIDATE BOOK DETAILS
         public string BookValidate(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage)
         {
+            //MaiNguyen những yêu cầu, quy đinh nhập liệu thông tin cuốn sách
             if (bookName.Equals(string.Empty)||bookName.Length>30 || bookName.Length<3)
             {
                 return "Tên sách không hợp lệ!!!,\ncho phép tối thiểu 3 tối đa 30 ký tự,";
@@ -43,7 +44,7 @@ namespace LibraryMSWF.BL
                 return "Bản sao sách không hợp lệ!!!, \nit không được lớn hơn 200,";
             }
             else if (bookImage.Equals(string.Empty))
-            {
+            {  //MaiNguyen bắt buộc chọn hình ảnh  
                 return "Hình ảnh sách không hợp lệ!!!,\nVui lòng chọn hình ảnh cuốn sách,";
             }
             else
@@ -59,9 +60,12 @@ namespace LibraryMSWF.BL
             DataSet ds = bookDal.GetAllBooksDAL();// gọi store procedure lấy tất cả cuốn sách
             return ds;
         }
+
+        //MAINGUYEN tầng controller là nơi kết nối giữa View (giao diện) với DAL (xử lí query)
         //ADD BOOK INTO BOOK TABLE => BL
         public string AddBookBL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage, int bookStatus)
         {
+            //trước khi insert thì phải kiểm tra 
             // mainguyen kiểm tra dữ liệu đúng định dạng không
             string isBookValid = BookValidate(bookName,bookAuthor,bookISBN,bookPrice,bookCopies, bookImage);
             if (isBookValid=="true")
