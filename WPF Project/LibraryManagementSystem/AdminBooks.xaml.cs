@@ -51,6 +51,9 @@ namespace LibraryManagementSystem
                         BookISBN = Convert.ToString(dr["BookISBN"]),
                         BookCopies = Convert.ToInt32(dr["BookCopies"]),
                         BookPrice = Convert.ToInt32(dr["BookPrice"]),
+                        BookStatus = Convert.ToInt32(dr["BookStatus"]),
+                        //gán hình ảnh vào danh sách sách
+                        BookImage = Convert.ToString(dr["BookImage"]),
                     });
                 }
                 dgBooks.ItemsSource = lst;
@@ -60,6 +63,22 @@ namespace LibraryManagementSystem
                 MessageBox.Show("Some unknown exception is occured!!!, Try again..");
             }
             
+        }
+        
+        //OPEN Detail BOOK WINDOW =>PL
+        private void BtnDetail_Click(object sender, RoutedEventArgs e)
+        {
+            Book book = dgBooks.SelectedItem as Book;
+            if (book != null)
+            {
+                updateBook = book;
+                AdminDetailBook adminDetailBook = new AdminDetailBook();
+                adminDetailBook.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a book to detail...");
+            }
         }
 
         //OPEN UPDATE BOOK WINDOW =>PL
@@ -90,7 +109,7 @@ namespace LibraryManagementSystem
                     bool isDone = bookBL.DeleteBookBL(book.BookId);
                     if (isDone)
                     {
-                        MessageBox.Show("Book deleted successfuly..");
+                        MessageBox.Show("Đã xóa sách thành công..");
                         InitializeAdminBooks();
                     }
                     else

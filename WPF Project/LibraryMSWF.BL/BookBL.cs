@@ -12,35 +12,39 @@ namespace LibraryMSWF.BL
     public class BookBL
     {
         //VALIDATION METHOD FOR VALIDATE BOOK DETAILS
-        public string BookValidate(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
+        public string BookValidate(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage)
         {
             if (bookName.Equals(string.Empty)||bookName.Length>30 || bookName.Length<3)
             {
-                return "Invalid Book name!!!,\nminimum 3 maximum 30 characters are allowed,";
+                return "Tên sách không hợp lệ!!!,\ncho phép tối thiểu 3 tối đa 30 ký tự,";
             }
             else if(bookAuthor.Equals(string.Empty) || bookAuthor.Length > 30 || bookAuthor.Length < 3)
             {
-                return "Invalid Author name!!!,\nminimum 3 maximum 30 characters are allowed,";
+                return "Tên tác giả không hợp lệ!!!,\ncho phép tối thiểu 3 tối đa 30 ký tự,";
             }
             else if (bookName.Any(char.IsDigit))
             {
-                return "Invalid Book name!!!,\nname should not contain digits,";
+                return "Tên sách không hợp lệ!!!,\ntên không được chứa chữ số,";
             }
             else if (bookAuthor.Any(char.IsDigit))
             {
-                return "Invalid Author name!!!,\nname should not contain digits,";
+                return "Tên tác giả không hợp lệ!!!,\ntên không được chứa chữ số,";
             }
             else if (bookISBN.Equals(string.Empty) || bookISBN.Length > 15 || bookISBN.Length < 3)
             {
-                return "Invalid book ISBN!!!, \nminimum 3 maximum 15 characters are allowed, ";
+                return "Mã ISBN sách không hợp lệ!!!, \nCho phép tối thiểu 3 tối đa 15 ký tự,";
             }
             else if(bookPrice==0 || bookPrice <= 10)
             {
-                return "Invalid book price!!!,\nit not be less than 10,";
+                return "Giá sách không hợp lệ!!!,\nit không thấp hơn 10,";
             }
             else if(bookCopies<0 || bookCopies > 200)
             {
-                return "Invalid book copies!!!, \nit not be greater than 200,";
+                return "Bản sao sách không hợp lệ!!!, \nit không được lớn hơn 200,";
+            }
+            else if (bookImage.Equals(string.Empty))
+            {
+                return "Hình ảnh sách không hợp lệ!!!,\nVui lòng chọn hình ảnh cuốn sách,";
             }
             else
             {
@@ -52,17 +56,19 @@ namespace LibraryMSWF.BL
         public DataSet GetAllBooksBL()
         {
             BookDAL bookDal = new BookDAL();
-            DataSet ds = bookDal.GetAllBooksDAL();
+            DataSet ds = bookDal.GetAllBooksDAL();// gọi store procedure lấy tất cả cuốn sách
             return ds;
         }
         //ADD BOOK INTO BOOK TABLE => BL
-        public string AddBookBL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
+        public string AddBookBL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage, int bookStatus)
         {
-            string isBookValid = BookValidate(bookName,bookAuthor,bookISBN,bookPrice,bookCopies);
+            // mainguyen kiểm tra dữ liệu đúng định dạng không
+            string isBookValid = BookValidate(bookName,bookAuthor,bookISBN,bookPrice,bookCopies, bookImage);
             if (isBookValid=="true")
             {
+                // mainguyen gọi qua dao - database xử lí sql
                 BookDAL bookDAL = new BookDAL();
-                bool isDone = bookDAL.AddBookDAL(bookName, bookAuthor, bookISBN, bookPrice, bookCopies);
+                bool isDone = bookDAL.AddBookDAL(bookName, bookAuthor, bookISBN, bookPrice, bookCopies, bookImage, bookStatus);
                 if (isDone!=true)
                 {
                     return "Server error, ";
@@ -79,13 +85,13 @@ namespace LibraryMSWF.BL
             
         }
         //UPDATE THE BOOK FROM BOOK TABLE =>BL
-        public string UpdateBookBL(int bookId, string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies)
+        public string UpdateBookBL(int bookId, string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage, int bookStatus)
         {
-            string isBookValid = BookValidate(bookName, bookAuthor, bookISBN, bookPrice, bookCopies);
+            string isBookValid = BookValidate(bookName, bookAuthor, bookISBN, bookPrice, bookCopies, bookImage);
             if (isBookValid == "true")
             {
                 BookDAL bookDAL = new BookDAL();
-                bool isDone = bookDAL.UpdateBookDAL(bookId, bookName, bookAuthor, bookISBN, bookPrice, bookCopies);
+                bool isDone = bookDAL.UpdateBookDAL(bookId, bookName, bookAuthor, bookISBN, bookPrice, bookCopies, bookImage, bookStatus);
                 if (isDone != true)
                 {
                     return "Server error, ";

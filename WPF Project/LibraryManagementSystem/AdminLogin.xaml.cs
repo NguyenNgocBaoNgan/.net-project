@@ -37,11 +37,13 @@ namespace LibraryManagementSystem
                     if (isDone)
                     {
                         alertAdmin.Content = "";
-                        MessageBox.Show("Logged in successfully...");
+                        MessageBox.Show("Logged in successfully...");//MAINGUYEN comment code lại dòng này
+                        // MessageBox.Show("Logged in successfully...");//MAINGUYEN đăng nhập thành công mặc định vào trang dashboard không cần hiển thị câu thông báo
                         AdminHome adminHome = new AdminHome();
                         adminHome.Show();
                         tbAdminEmail.Clear();
                         tbAdminPass.Clear();
+                        // this.Close();//MAINGUYEN mở commenct code dòng này > tắt giao diện trang login admin khi đăng nhập thành công
                     }
                     else
                     {

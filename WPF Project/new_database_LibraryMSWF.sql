@@ -1,3 +1,4 @@
+use LibraryMSWF
 CREATE TABLE tblAdmins (
                 AdminId int NOT NULL primary key,
                 AdminName NVARCHAR(50) NOT NULL,
@@ -8,27 +9,68 @@ CREATE TABLE tblAdmins (
 
 insert into tblAdmins (AdminId,  AdminName, AdminEmail , AdminPass) 
 values (1,'Bao Ngan', 'ngan@gmail.com','123123');
+insert into tblAdmins (AdminId,  AdminName, AdminEmail , AdminPass) 
+values (2,'Mai', 'mai@gmail.com','123');
 
+-- mainguyen tạo bảng book
 CREATE TABLE tblBooks (
                 BookId int IDENTITY(100,1)  primary key,
                 BookName NVARCHAR(50) NOT NULL,
                 BookAuthor NVARCHAR(50)  Not Null ,
                 BookISBN NVARCHAR(50) NOT NULL,
                 BookPrice money not null,
-				BookCopies int not null
+				BookCopies int not null,
+				BookImage NVARCHAR(100) not null,
+				BookStatus int not null,
 )
 drop table tblBooks
-insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies ) 
-values ('Wow Beutiful', 'Jim Jan','KS454WE', 200.00,9);
+insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage, BookStatus) 
+values ('Wow Beutiful', 'Jim Jan','KS454WE', 200.00,9,'abc.png', 1);
 
-insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies ) 
-values ('Bun', 'Beena Ant','UFS45AS3', 160.00,8);
+insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage, BookStatus) 
+values ('Bun', 'Beena Ant','UFS45AS3', 160.00,8,'abc.png', 1);
 
-insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies ) 
-values ('Fault in Stars', 'Me Only','LDS45ED2', 200.00,8);
+insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage, BookStatus) 
+values ('Fault in Stars', 'Me Only','LDS45ED2', 200.00,8,'abc.png', 1);
 
-insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies ) 
-values ('Are you sure', 'Nancy','KSD14523', 20.00,3);
+insert into tblBooks(BookName, BookAuthor ,BookISBN,BookPrice,BookCopies, BookImage, BookStatus) 
+values ('Are you sure', 'Nancy','KSD14523', 20.00,3,'abc.png', 1);
+
+select * from tblBooks;
+delete from tblBooks;
+
+
+/****** AddBook ******/
+-- mainguyen tạo sp addbook
+/****** Object: Stored Procedure [dbo].[AddBook] Script Date: 7/2/2020 1:19:09 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[AddBook] (@BookName nvarchar(50), @BookAuthor nvarchar(50), @BookISBN nvarchar(50), @BookPrice money, @BookCopies int, @BookImage nvarchar(100), @BookStatus int) as 
+begin
+insert into tblBooks values (@BookName, @BookAuthor, @BookISBN, @BookPrice,  @BookCopies, @BookImage, @BookStatus);
+end
+GO
+
+drop procedure [dbo].[AddBook];
+GO
+/****** Object: Stored Procedure [dbo].[UpdateBook] ****/
+-- mainguyen tạo sp updatebook
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+create procedure [dbo].[UpdateBook] (@BookId int,@BookName nvarchar(50), @BookAuthor nvarchar(50), @BookISBN nvarchar(50), @BookPrice money, @BookCopies int, @BookImage nvarchar(100), @BookStatus int) as 
+begin
+update tblBooks
+set BookName = @BookName, BookAuthor = @BookAuthor , BookISBN = @BookISBN, BookPrice = @BookPrice, BookCopies = @BookCopies, BookImage = @BookImage, BookStatus = @BookStatus
+where BookId = @BookId
+end
+GO
+
+drop procedure [dbo].[UpdateBook];
+GO
 
 CREATE TABLE tblRecievedUsers (
                 BookId int NOT NULL,
@@ -129,19 +171,6 @@ begin
 select count(*) from tblAdmins where AdminEmail=@adminEmail and AdminPass=@adminPass;
 end
 GO
-/****** AddBook ******/
-
-/****** Object: Stored Procedure [dbo].[AddBook] Script Date: 7/2/2020 1:19:09 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-create procedure [dbo].[AddBook] (@BookName nvarchar(50), @BookAuthor nvarchar(50), @BookISBN nvarchar(50), @BookPrice money, @BookCopies int) as 
-begin
-insert into tblBooks values (@BookName, @BookAuthor, @BookISBN, @BookPrice,  @BookCopies);
-end
-GO
-
 /****** AddUser ******/
 GO
 /****** Object: Stored Procedure [dbo].[AddUser] Script Date: 7/2/2020 1:30:17 PM ******/
@@ -368,21 +397,6 @@ delete tblBooks where BookId=@bookId;
 end
 GO
 
-GO
-/****** Object: Stored Procedure [dbo].[UpdateBook] ****/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-create procedure [dbo].[UpdateBook] (@BookId int,@BookName nvarchar(50), @BookAuthor nvarchar(50), @BookISBN nvarchar(50), @BookPrice money, @BookCopies int) as 
-begin
-update tblBooks
-set BookName = @BookName, BookAuthor = @BookAuthor , BookISBN = @BookISBN, BookPrice = @BookPrice, BookCopies = @BookCopies
-where BookId = @BookId
-end
-GO
-
-GO
 /****** Object: Stored Procedure [dbo].[GetAllUsers] ****/
 SET ANSI_NULLS ON
 GO

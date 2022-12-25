@@ -67,6 +67,9 @@
     <Compile Include="AdminBooks.xaml.cs">
       <DependentUpon>AdminBooks.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AdminDetailBook.xaml.cs">
+      <DependentUpon>AdminDetailBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AdminHome.xaml.cs">
       <DependentUpon>AdminHome.xaml</DependentUpon>
     </Compile>
@@ -112,6 +115,10 @@
     <Page Include="AdminBooks.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminDetailBook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="AdminHome.xaml">
       <SubType>Designer</SubType>
@@ -224,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\yoab-anderson-IHC5LPAoGrs-unsplash %282%29.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\abc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
