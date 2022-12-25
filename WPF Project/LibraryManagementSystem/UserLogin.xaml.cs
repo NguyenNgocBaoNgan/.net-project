@@ -37,7 +37,6 @@ namespace LibraryManagementSystem
                     if (isDone != 0)
                     {
                         userId = isDone;
-                        MessageBox.Show("Logged in successfully...");
                         UserHome userHome = new UserHome();
                         userHome.Show();
                         tbUserEmail.Clear();
