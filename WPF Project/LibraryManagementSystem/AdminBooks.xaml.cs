@@ -56,7 +56,7 @@ namespace LibraryManagementSystem
                         BookImage = Convert.ToString(dr["BookImage"]),
                     });
                 }
-                dgBooks.ItemsSource = lst;
+                dgBooks.ItemsSource = lst;//list book lưu vào datagridview, dữ liệu lấy từ database gán vào bảng
             }
             catch (Exception)
             {
@@ -68,7 +68,7 @@ namespace LibraryManagementSystem
         //OPEN Detail BOOK WINDOW =>PL
         private void BtnDetail_Click(object sender, RoutedEventArgs e)
         {
-            Book book = dgBooks.SelectedItem as Book;
+            Book book = dgBooks.SelectedItem as Book;//lấy thông tin 1 dòng tương đương 1 cuốn sách > chuyển qua màn hình detail
             if (book != null)
             {
                 updateBook = book;

@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 
 namespace LibraryMSWF.DAL
 {
+
+    // Query có:
+    // hiển thị danh sách book gồm tất cả các cuốn sách
+    // Thêm cuốn sách mới
+    // Xem chi tiết cuốn sách
+    // Sửa thông tin cuốn sách
+    // Xóa cuốn sách
     public class BookDAL
     {
         //RETURN THE COMPLETE BOOKS FROM BOOK TABLE =>DAL
@@ -21,15 +28,17 @@ namespace LibraryMSWF.DAL
            da.Fill(ds);
            return ds;
         }
+        // MaiNguyen
         //ADD BOOK INTO BOOK TABLE => DAL
         public bool AddBookDAL(string bookName, string bookAuthor, string bookISBN, double bookPrice, int bookCopies, string bookImage, int bookStatus)
         {
             try
             {
-                // mainguyen gọi xuống database sử dụng câu lênh gọi đến store procedure 
-                sqlCon = new SqlConnection(strCon);
+                // mainguyen gọi xuống database sử dụng câu lênh gọi đến store procedure add book
+                sqlCon = new SqlConnection(strCon);//khởi tạo
                 // mainguyen vị trí từng biến phải đúng với vị trí ở trên store procedure
                 SqlCommand cmd = new SqlCommand("AddBook @name, @author, @isbn, @price, @copy, @image, @status", sqlCon);
+                //khai báo và gán các giá trị thuộc tín vào câu sp
                 cmd.Parameters.Add(new SqlParameter("@name", bookName));
                 cmd.Parameters.Add(new SqlParameter("@author", bookAuthor));
                 cmd.Parameters.Add(new SqlParameter("@isbn", bookISBN));
@@ -38,21 +47,23 @@ namespace LibraryMSWF.DAL
                 cmd.Parameters.Add(new SqlParameter("@image", bookImage));
                 cmd.Parameters.Add(new SqlParameter("@status", bookStatus));
 
-                sqlCon.Open();
-                int rowAffected = cmd.ExecuteNonQuery();
-                sqlCon.Close();
+                sqlCon.Open();//mở kết nối xuống database
+                int rowAffected = cmd.ExecuteNonQuery();//chạy câu query
+                sqlCon.Close();//đóng kết nối
                 if (rowAffected > 0)
                 {
+                    //nếu insert thành công thì trả về có dữ liệu > insert sách thành công
                     return true;
                 }
                 else
                 {
+                    //insert không thành công, nhưng ko có thông báo lỗi
                     return false;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message);//in câu thông báo lỗi khi câu procedure bị SAI
                 return false;
             }
 

@@ -4,6 +4,7 @@ namespace LibraryMSWF.Entity
 {
     public class Book
     {
+        // Thuộc tính của sách 
         public int BookId { get; set; }
         public string BookName { get; set; }
         public string BookAuthor { get; set; }

@@ -24,10 +24,13 @@ namespace LibraryManagementSystem
     /// </summary>
     public partial class AdminAddBook : Window
     {
-        //khởi tạo biến để lưu đường dẫn hình ảnh
-        public string bookImage = "";
+        //MaiNguyen chức năng thêm cuốn sách sẽ nhập liệu thông tin tên,......, trạng thái, updoad hình ảnh
+        //Hình ảnh sẽ được lưu vào thư mục Images do mình quy định
+
+        public string bookImage = ""; //khởi tạo biến để lưu tên hình ảnh ví dụ abc.png
         public static string PATH_IMAGE_SAVE = "\\..\\..\\Images\\";//thư mục chứa hình khi thao tác nhấn upload image
-        public string linkImageView = "";
+        public string linkImageView = "";//đường link vị trí hình ảnh đang chọn để upload
+
         public AdminAddBook()
         {
             InitializeComponent();
@@ -46,7 +49,6 @@ namespace LibraryManagementSystem
                 {
                     //lấy giá trị từ giao diện lưu vào database
                     ComboBoxItem typeItem = (ComboBoxItem)cboStatus.SelectedItem;
-                    string value = typeItem.Content.ToString();
                     string status = typeItem.Name.ToString();
                     int bookStatus = 2;
                     if (status == "Actice")
@@ -93,20 +95,24 @@ namespace LibraryManagementSystem
                 dialog.FilterIndex = 1;
                 if (dialog.ShowDialog() == true)
                 {
-                    imagePicture.Source = new BitmapImage(new Uri(dialog.FileName));//hiển thị hình ảnh xem trước
+                    imagePicture.Source = new BitmapImage(new Uri(dialog.FileName));//hiển thị hình ảnh xem trước - view
 
                     this.linkImageView = System.IO.Path.GetFullPath(dialog.FileName);//đường dẫn hình ảnh mới chọn để xem
-                    this.bookImage = System.IO.Path.GetFileName(dialog.FileName);//lấy tên file //gán đường dẫn hình ảnh vào biến tạm > để khi nhấn save lấy để lưu vào database
+                    this.bookImage = System.IO.Path.GetFileName(dialog.FileName);//lấy tên file lưu DB 
+                    //gán đường dẫn hình ảnh vào biến tạm > để khi nhấn save lấy để lưu vào database
 
                     //nếu muốn vừa xem vừa lưu thì 
                     //START: MAINGUYEN
-                    string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;////D:\DH20DT\hk5\Net\CuoiKy\loadimage\loadimage\bin\Debug\net6.0-windows\ thư mục mặc định                                                                 
-                    string path = Path.Combine(defaultFolder + PATH_IMAGE_SAVE);//kiểm tra thư mục hình ảnh
-                    if (!Directory.Exists(path))
+                    string defaultFolder = System.AppDomain.CurrentDomain.BaseDirectory;// lấy vị trí source code
+                    // D:\DH20DT\hk5\Net\CuoiKy\loadimage\loadimage\bin\Debug\net6.0-windows\ thư mục mặc định                                                                 
+                    string path = Path.Combine(defaultFolder + PATH_IMAGE_SAVE);
+                    // D:\DH20DT\hk5\Net\CuoiKy\loadimage\loadimage\Images // đường dẫn sẽ lưu hình ảnh
+                    if (!Directory.Exists(path))//kiểm tra thư mục hình ảnh
                     {
                         Directory.CreateDirectory(path);//nếu thự mục hình ảnh chưa có thì tạo mới
                     }
                     string linkImageSave = path + this.bookImage;
+                    // D:\DH20DT\hk5\Net\CuoiKy\loadimage\loadimage\Images\abcd.png
                     if (!File.Exists(linkImageSave))
                     {
                         File.Copy(this.linkImageView, linkImageSave);//copy hình ảnh từ ngoài vào trong project(để tạo dữ liệu chứa hình ảnh)
@@ -120,6 +126,11 @@ namespace LibraryManagementSystem
             }
         }
 
+        //MaiNguyen tách chức năng view và save hình ảnh lý do người dùng có thể lựa chọn hình ảnh trước khi lưu
+        //do người dùng chọn 100 lần thì sẽ lưu vào 100 lần thì hệ thống sẽ bị rác
+        //nên cần tách chức năng cho xem trước hình ảnh cần lưu
+        //để không lưu file rác
+        //nếu hợp lý thì mới save
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //Khi nhấn vào nút update image là chức năng cập nhật hình ảnh
